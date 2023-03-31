@@ -43,14 +43,14 @@ public class ToralController : MonoBehaviour
         pelota = GameObject.FindWithTag("Esfera1");
         canvasPausa = GameObject.FindGameObjectWithTag("Pausa");
 
-//        imageComponent = GameObject.FindGameObjectWithTag("VidaPlayer1").GetComponent<Image>();
+        imageComponent = GameObject.FindGameObjectWithTag("VidaPlayer1").GetComponent<Image>();
         
 
     }
 
     void Update()
     {
-//        imageComponent.fillAmount = currentHealth / 100f;
+        imageComponent.fillAmount = currentHealth / 100f;
    
         if (Gamepad.all[0].buttonEast.isPressed && sostiene)
         {

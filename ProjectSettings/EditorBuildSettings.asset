@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Principal.unity
+    guid: 4c35204eaa9a94406ac4dad1d760a279
+  - enabled: 1
     path: Assets/Scenes/Seleccion.unity
     guid: b10c6bd82bf5941ed887b8fa714885a2
   - enabled: 1
     path: Assets/Scenes/Combate.unity
     guid: 504af794be91a434d9129af0663b75b0
-  - enabled: 1
-    path: Assets/Scenes/Principal.unity
-    guid: 4c35204eaa9a94406ac4dad1d760a279
   - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 5bd7cf30bf37349699f6640a4b90239e
