@@ -50,7 +50,7 @@ public class Player2 : MonoBehaviour
     {
         imageComponent.fillAmount = currentHealth / 100f;
         
-        if (Gamepad.all[1].buttonEast.isPressed && sostiene)
+        if (/*Gamepad.all[1].buttonEast.isPressed*/ Input.GetKey(KeyCode.L) && sostiene)
         {
             pelota.GetComponent<Rigidbody>().isKinematic = false;
             pelota.GetComponent<Rigidbody>().detectCollisions = true;
@@ -64,9 +64,33 @@ public class Player2 : MonoBehaviour
         }
         controlador = GetComponent<CharacterController>();
 
-        //Movimiento
+        /*/Movimiento
         Vector2 inputJoystick = Gamepad.all[1].leftStick.ReadValue();
-        Vector3 direccion = new Vector3(inputJoystick.x, 0, inputJoystick.y).normalized;
+        Vector3 direccion = new Vector3(inputJoystick.x, 0, inputJoystick.y).normalized; */
+
+        Vector3 direccion = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            direccion += Vector3.left;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            direccion += Vector3.right;
+        }
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            direccion += Vector3.forward;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            direccion += Vector3.back;
+        }
+
+        direccion = direccion.normalized;
 
         if (direccion != Vector3.zero)
         {
@@ -76,7 +100,7 @@ public class Player2 : MonoBehaviour
 
         if (controlador.isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space) || Gamepad.all[1].buttonSouth.isPressed)
+            if (Input.GetKey(KeyCode.J)/* || Gamepad.all[1].buttonSouth.isPressed*/)
             {
                 animacion.SetTrigger("jump");
                 velocidadY = fuerzaSalto;
@@ -113,7 +137,7 @@ public class Player2 : MonoBehaviour
         }
 
         //Combate
-        if (Gamepad.all[1].buttonWest.isPressed && puedeGolpear && !estaGolpeando)
+        if (/*Gamepad.all[1].buttonWest.isPressed*/ Input.GetKey(KeyCode.K) && puedeGolpear && !estaGolpeando)
         {
             animacion.SetTrigger("punch");
             StartCoroutine(EsperarParaGolpear());

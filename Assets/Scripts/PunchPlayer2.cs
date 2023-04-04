@@ -10,7 +10,7 @@ public class PunchPlayer2 : MonoBehaviour
     {
         CapsuleCollider capsuleCollider = GetComponent<CapsuleCollider>();
 
-        if (Gamepad.all[1].buttonWest.isPressed)
+        if (/* Gamepad.all[1].buttonWest.isPressed*/ Input.GetKey(KeyCode.K))
         {
             StartCoroutine(DisableColliderForSeconds(capsuleCollider, 1f));
 
@@ -26,7 +26,6 @@ public class PunchPlayer2 : MonoBehaviour
 
             // Disminuir la vida del jugador
             playerHealth.TakeDamage(damageAmount);
-            Debug.Log("Hay colisoon2222");
         }
     }
 

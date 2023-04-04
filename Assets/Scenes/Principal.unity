@@ -1585,7 +1585,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -463, y: -419}
-  m_SizeDelta: {x: 78.0544, y: 18.2932}
+  m_SizeDelta: {x: 99, y: 18.2932}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978535648
 MonoBehaviour:
@@ -2244,7 +2244,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Creditos
+  m_text: 'Controles
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98dd49d37685d4b8d8ef8bc4867a9cfe, type: 2}
   m_sharedMaterial: {fileID: -5159922075495613107, guid: 98dd49d37685d4b8d8ef8bc4867a9cfe,

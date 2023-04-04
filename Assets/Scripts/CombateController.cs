@@ -41,7 +41,7 @@ public class CombateController : MonoBehaviour
 
         string selectedPlayer1 = PlayerPrefs.GetString("selectedPlayer1");
         string selectedPlayer2 = PlayerPrefs.GetString("selectedPlayer2");
-        Debug.Log("EL ENFRENTAMIENTO SERA: " + selectedPlayer1 + " VS " + selectedPlayer2);
+        //Debug.Log("EL ENFRENTAMIENTO SERA: " + selectedPlayer1 + " VS " + selectedPlayer2);
 
         Transform puntoAleatorio = AparecePlayer1[Random.Range(0, AparecePlayer1.Length)];
 

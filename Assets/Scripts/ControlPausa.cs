@@ -15,13 +15,13 @@ public class ControlPausa : MonoBehaviour
     void Update()
     {
         // Si se presiona la tecla "Espacio", activa o desactiva el objeto
-            if(Gamepad.all[0].startButton.isPressed || Gamepad.all[1].startButton.isPressed)
+            if(Input.GetKey(KeyCode.T))
         {
             canvasPausa.SetActive(true);
 
         }
         // Si se presiona la tecla "Espacio", activa o desactiva el objeto
-        if (Gamepad.all[0].selectButton.isPressed || Gamepad.all[1].selectButton.isPressed)
+        if (Input.GetKey(KeyCode.Y))
         {
             canvasPausa.SetActive(false);
 

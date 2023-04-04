@@ -49,10 +49,11 @@ public class ToralController : MonoBehaviour
     }
 
     void Update()
-    {
+    {        
         imageComponent.fillAmount = currentHealth / 100f;
-   
-        if (Gamepad.all[0].buttonEast.isPressed && sostiene)
+
+        // if (Gamepad.all[0].buttonEast.isPressed && sostiene)
+        if ((Input.GetKey(KeyCode.H) && sostiene))
         {
             pelota.GetComponent<Rigidbody>().isKinematic = false;
             pelota.GetComponent<Rigidbody>().detectCollisions = true;
@@ -66,9 +67,37 @@ public class ToralController : MonoBehaviour
         }
         controlador = GetComponent<CharacterController>();
 
-        //Movimiento
+
+
+        /*Movimiento
         Vector2 inputJoystick = Gamepad.all[0].leftStick.ReadValue();
         Vector3 direccion = new Vector3(inputJoystick.x, 0, inputJoystick.y).normalized;
+        */
+
+        Vector3 direccion = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            direccion += Vector3.left;
+        }
+
+        if (Input.GetKey(KeyCode.D))
+        {
+            direccion += Vector3.right;
+        }
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            direccion += Vector3.forward;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            direccion += Vector3.back;
+        }
+
+        direccion = direccion.normalized;
+
 
         if (direccion != Vector3.zero)
         {
@@ -78,7 +107,7 @@ public class ToralController : MonoBehaviour
 
         if (controlador.isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space) || Gamepad.all[0].buttonSouth.isPressed)
+            if (Input.GetKey(KeyCode.F) /*|| Gamepad.all[0].buttonSouth.isPressed*/)
             {
                 animacion.SetTrigger("jump");
                 velocidadY = fuerzaSalto;
@@ -115,7 +144,7 @@ public class ToralController : MonoBehaviour
         }
 
         //Combate
-        if (Gamepad.all[0].buttonWest.isPressed && puedeGolpear && !estaGolpeando)
+        if (/*Gamepad.all[0].buttonWest.isPressed || */Input.GetKey(KeyCode.G) && puedeGolpear && !estaGolpeando)
         {
             animacion.SetTrigger("punch");
             StartCoroutine(EsperarParaGolpear());
@@ -154,7 +183,6 @@ public class ToralController : MonoBehaviour
         if (currentHealth <= 0)
         {
             imageComponent.fillAmount = 0.0f;
-//            canvasPausa.SetActive(false);
             Die();
             DesactivarEsteScript();
         }
